@@ -1,6 +1,5 @@
 class WordReader
   def read_from_file(file_name)
-
     unless File.exist?(file_name)
       return
     end
@@ -10,7 +9,7 @@ class WordReader
       lines = file.readlines
       file.close
     rescue SystemCallError
-      abort "Файл со словами не найден!"
+      raise "Файл со словами не найден!"
     end
 
     lines.sample.chomp

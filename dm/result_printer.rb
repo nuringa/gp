@@ -42,7 +42,6 @@ class ResultPrinter
   end
 
   def get_word_for_print(letters, good_letters)
-
     result = ""
 
     letters.each do |item|

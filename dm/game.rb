@@ -10,8 +10,8 @@ class Game
   end
 
   def get_letters(word)
-    if word == nil
-      abort "Нечего отгадывать. Проверьте файл"
+    if word.nil?
+      raise "Нечего отгадывать. Проверьте файл"
     end
 
     word.encode('UTF-8').split("")
@@ -24,11 +24,9 @@ class Game
     if has_exceptions?(letter)
       add_exceptions(letter, @good_letters)
       @status = 1 if (@letters - @good_letters).empty?
-
     elsif @letters.include?(letter)
       @good_letters << letter
       @status = 1 if (@letters - @good_letters).empty?
-
     else
       letter.match(/[еёий]/) ? add_exceptions(letter, @bad_letters) : @bad_letters << letter
       @errors += 1
